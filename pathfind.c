@@ -20,7 +20,7 @@ char *pathfind(char *cmd)
 
 		pathd = strtok(NULL, ":");
 	}
-printf("%s\n", ret);
+
 	return (ret);
 }
 

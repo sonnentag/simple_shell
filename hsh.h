@@ -7,6 +7,10 @@
 #include <stdio.h>
 #include <string.h>
 
+extern char **environ;
+/* extern const char *PWD; */
+/* extern char *PATH; */
+
 /* 
  * const struct varinit varinit[] = {
  *       {&vifs,   VSTRFIXED|VTEXTFIXED,           "IFS= \t\n"},

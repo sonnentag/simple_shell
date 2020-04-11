@@ -13,7 +13,6 @@ int main(void)
 {
 	char *line;
 	char **args;
-	int r = 1;
 
 	while (1)
 	{
@@ -21,8 +20,10 @@ int main(void)
  		if(!isatty(STDIN_FILENO))
  			exit(0);
  		else
+		{
  			write(1," ($) ",5);
- 
+			fflush(stdout);
+		}
 
 		line = read_line();
 		args = split_line(line);	
