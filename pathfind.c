@@ -8,13 +8,13 @@ char *pathfind(char *cmd)
 	char *ret = cmd;
 
 	pathd = strtok(pathvar, ":");
-	while (pathd) 
+	while (pathd)
 	{
-		strcpy(pd, pathd);
-		strcat(pd, "/");
+		_strcpy(pd, pathd);
+		_strcat(pd, "/");
 		if (file_exist(strcat(pd, cmd)))
 		{
-		 	ret = strdup(pd);
+		 	ret = _strdup(pd);
 			break;
 		}
 
@@ -26,7 +26,7 @@ char *pathfind(char *cmd)
 
 int file_exist(char *filename)
 {
-	struct stat buffer;   
+	struct stat buffer;
 
 	return (stat (filename, &buffer) == 0);
 }
