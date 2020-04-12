@@ -4,17 +4,17 @@
 char *pathfind(char *cmd)
 {
 	char *pathvar = getenv("PWD");
-	char pd[64], *pathd;
+ 	char pd[64], *pathd;
 	char *ret = cmd;
 
 	pathd = strtok(pathvar, ":");
 	while (pathd)
 	{
-		strcpy(pd, pathd);
-		strcat(pd, "/");
-		if (file_exist(strcat(pd, cmd)))
+		_strcpy(pd, pathd);
+		_strcat(pd, "/");
+		if (file_exist(_strcat(pd, cmd)))
 		{
-			ret = strdup(pd);
+		 	ret = _strdup(pd);
 			break;
 		}
 
