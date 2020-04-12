@@ -3,7 +3,7 @@
 
 char *pathfind(char *cmd)
 {
-	char pathvar[] = "/home/asims/.bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
+	char *pathvar = getenv("PWD");
  	char pd[64], *pathd;
 	char *ret = cmd;
 
@@ -12,7 +12,7 @@ char *pathfind(char *cmd)
 	{
 		_strcpy(pd, pathd);
 		_strcat(pd, "/");
-		if (file_exist(strcat(pd, cmd)))
+		if (file_exist(_strcat(pd, cmd)))
 		{
 		 	ret = _strdup(pd);
 			break;
