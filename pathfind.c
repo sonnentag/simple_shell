@@ -11,16 +11,12 @@ char *pathfind(char *cmd)
 	while (pathd)
 	{
 		_strcpy(pd, pathd);
-		_strcat(pd, "/");
-		if (file_exist(_strcat(pd, cmd)))
-		{
+		strcat(pd, "/");
+		if (file_exist(strcat(pd, cmd)))
 		 	ret = _strdup(pd);
-			break;
-		}
 
 		pathd = strtok(NULL, ":");
 	}
-
 	return (ret);
 }
 
