@@ -3,7 +3,7 @@
 
 char *pathfind(char *cmd)
 {
-	char *pathvar = getenv("PWD");
+	char *pathvar = getenv("PATH");
 	char pd[64], *pathd;
 	char *ret = cmd;
 
