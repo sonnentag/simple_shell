@@ -11,5 +11,5 @@ char *read_line(void)
 
 	getline(&line, &bufsize, stdin);
 
-	return(line);
+	return (line);
 }

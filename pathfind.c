@@ -3,8 +3,8 @@
 
 char *pathfind(char *cmd)
 {
-	char pathvar[] = "/home/asims/.bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
- 	char pd[64], *pathd;
+	char *pathvar = getenv("PATH");
+	char pd[64], *pathd;
 	char *ret = cmd;
 
 	pathd = strtok(pathvar, ":");
@@ -12,7 +12,7 @@ char *pathfind(char *cmd)
 	{
 		_strcpy(pd, pathd);
 		_strcat(pd, "/");
-		if (file_exist(strcat(pd, cmd)))
+		if (file_exist(_strcat(pd, cmd)))
 		{
 		 	ret = _strdup(pd);
 			break;
@@ -28,5 +28,5 @@ int file_exist(char *filename)
 {
 	struct stat buffer;
 
-	return (stat (filename, &buffer) == 0);
+	return (stat(filename, &buffer) == 0);
 }

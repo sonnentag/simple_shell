@@ -12,40 +12,31 @@ int launch(char **argv)
 		destdir = argv[1];
 		rc = chdir(destdir);
 
-		if (rc) 
-		{
+		if (rc)
 			perror("chdir failed");
-		}
-		else 
-		{
+		else
 
-			setenv("PWD",destdir,1);
-		}
+			setenv("PWD", destdir, 1);
 	}
 	else
 	{
 		pid = fork();
 		if (pid == 0)
 		{
-			/* Child process */
-			cmd = pathfind(argv[0]);
+			if (strchr(argv[0], 47) == NULL)
+				cmd = pathfind(argv[0]);
+			else
+				cmd = argv[0];
 			if (execvp(cmd, argv) == -1)
 				printf("%s: Command not found.\n", cmd);
-
 			exit(EXIT_FAILURE);
 		}
 		else if (pid < 0)
-		{
-			/* Error handling */
 			perror("hsh");
-		}
 		else
-		{
-			/* Parent process */
 			do {
 				pid = waitpid(pid, &status, WUNTRACED);
 			} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		}
 	}
 
 	return (1);
