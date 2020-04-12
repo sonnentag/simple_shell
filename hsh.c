@@ -16,19 +16,17 @@ int main(void)
 
 	while (1)
 	{
-
- 		if(!isatty(STDIN_FILENO))
- 			exit(0);
- 		else
+		if (!isatty(STDIN_FILENO))
+			exit(0);
+		else
 		{
- 			write(1," ($) ",5);
+			write(1, " ($) ", 5);
 			fflush(stdout);
 		}
 
 		line = read_line();
-		args = split_line(line);	
+		args = split_line(line);
 		launch(args);
-
 	}
-    return(0);
+	return (0);
 }
