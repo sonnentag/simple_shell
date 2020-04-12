@@ -23,7 +23,10 @@ int launch(char **argv)
 		pid = fork();
 		if (pid == 0)
 		{
-			cmd = pathfind(argv[0]);
+			if (strchr(argv[0], 47) == NULL)
+				cmd = pathfind(argv[0]);
+			else
+				cmd = argv[0];
 			if (execvp(cmd, argv) == -1)
 				printf("%s: Command not found.\n", cmd);
 			exit(EXIT_FAILURE);
