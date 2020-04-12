@@ -1,10 +1,12 @@
 #include "hsh.h"
 
+extern char **environ;
+
 int launch(char **argv)
 {
 	pid_t pid;
-	int status, rc;
-	char *cmd, *destdir;
+	int status;
+	char *cmd;
 	char wd[1024];
 
 	pid = fork();
@@ -21,10 +23,8 @@ int launch(char **argv)
 	else if (pid < 0)
 		perror("hsh");
 	else
-		do
-		{
+		do {
 			pid = waitpid(pid, &status, WUNTRACED);
-		}
-		while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status);
 	return (1);
 }
