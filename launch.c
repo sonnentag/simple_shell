@@ -10,6 +10,7 @@ int launch(char **argv)
 	int status;
 	char *cmd;
 	char wd[1024];
+	char **envp = environ;
 
 	pid = fork();
 	if (pid < 0)
@@ -20,7 +21,7 @@ int launch(char **argv)
 			cmd = pathfind(argv[0]);
 		else
 			cmd = argv[0];
-		if (execvp(cmd, argv) == -1)
+		if (execve(cmd, argv, envp) == -1)
 			printf("%s: Command not found.\n", cmd);
 		exit(EXIT_FAILURE);
 	}
