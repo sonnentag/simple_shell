@@ -6,7 +6,7 @@
 int builtincmd(char *found)
 {
 	int x, rc;
-	char Builtinarray[] = {"exit", "cd", "env"} , destdir;
+	char Builtinarray[] = {"exit", "cd", "env"}, destdir;
 
 
 	for (x = 0; x < 3; x++)
