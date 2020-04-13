@@ -13,23 +13,25 @@ int main(void)
 {
 	char *line;
 	char **args;
+	int r = 1;
 
-	while (1)
+	while (r == 1)
 	{
 		if (!isatty(STDIN_FILENO))
-			exit(0);
+			r = 0;
 		else
 		{
 			write(1, " ($) ", 5);
 			fflush(stdout);
 		}
+/* handle signal(SIGINT, ...handler); */
 
 		line = read_line();
-		args = split_line(line);
-		if (!builtincmd(args))
-			launch(args);
+		if (line)
+			args = split_line(line);
+		if (args)
+			if (!builtincmd(args))
+				launch(args);
 	}
 	return (0);
 }
- * _strcmp - compare two strings
-int _strcmp(char *s1, char *s2)
