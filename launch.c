@@ -1,7 +1,9 @@
 #include "hsh.h"
 
-extern char **environ;
-
+/**
+ *
+ *
+ */
 int launch(char **argv)
 {
 	pid_t pid;
@@ -10,6 +12,8 @@ int launch(char **argv)
 	char wd[1024];
 
 	pid = fork();
+	if (pid < 0)
+		perror("hsh");
 	if (pid == 0)
 	{
 		if (strchr(argv[0], 47) == NULL)
@@ -20,11 +24,10 @@ int launch(char **argv)
 			printf("%s: Command not found.\n", cmd);
 		exit(EXIT_FAILURE);
 	}
-	else if (pid < 0)
-		perror("hsh");
 	else
 		do {
 			pid = waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-	return (1);
+
+	return (0);
 }

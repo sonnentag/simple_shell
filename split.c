@@ -17,6 +17,11 @@ char **split_line(char *line)
 	}
 
 	found = strtok(line, " \n\r\t\a");
+	if (found == NULL)
+	{
+		free(buffer);
+		return (NULL);
+	}
 	while (found != NULL)
 	{
 		buffer[c] = found;
