@@ -11,8 +11,8 @@ char *pathfind(char *cmd)
 	while (pathd)
 	{
 		_strcpy(pd, pathd);
-		strcat(pd, "/");
-		if (file_exist(strcat(pd, cmd)))
+		_strcat(pd, "/");
+		if (file_exist(_strcat(pd, cmd)))
 		 	ret = _strdup(pd);
 
 		pathd = strtok(NULL, ":");
