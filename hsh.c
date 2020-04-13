@@ -26,7 +26,8 @@ int main(void)
 
 		line = read_line();
 		args = split_line(line);
-		launch(args);
+		if (!builtincmd(args))
+			launch(args);
 	}
 	return (0);
 }
