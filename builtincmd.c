@@ -1,7 +1,9 @@
 #include "hsh.h"
+
 /**
- *
- *
+ * builtincmd - parse for builtin command and proceed accordingly
+ * @argv: provided command line
+ * Return: 1 if builtin matched, 0 otherwise
  */
 int builtincmd(char **argv)
 {
@@ -15,7 +17,6 @@ int builtincmd(char **argv)
 			{
 				case 0:
 					exit(0);
-					ret = 1;
 				break;
 				case 1:
 					destdir = argv[1];
