@@ -9,6 +9,7 @@ int builtincmd(char **argv)
 {
 	int x, rc, ret = 0;
 	char *Builtinarray[] = {"exit", "cd", "env"}, *destdir;
+	char **envp;
 
 	for (x = 0; x < 3; x++)
 		if (strcmp(argv[0], Builtinarray[x]) == 0)
@@ -28,8 +29,9 @@ int builtincmd(char **argv)
 					ret = 1;
 				break;
 				case 2:
-					while (*environ)
-						printf("%s\n", *environ++);
+					envp = environ;
+					while (*envp)
+						printf("%s\n", *envp++);
 					ret = 1;
 				break;
 			}
