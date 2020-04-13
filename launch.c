@@ -26,6 +26,5 @@ int launch(char **argv)
 		do {
 			pid = waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-
 	return (1);
 }
