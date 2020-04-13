@@ -12,7 +12,7 @@ int builtincmd(char **argv)
 	char **envp;
 
 	for (x = 0; x < 3; x++)
-		if (strcmp(argv[0], Builtinarray[x]) == 0)
+		if (_strcmp(argv[0], Builtinarray[x]) == 0)
 		{
 			switch (x)
 			{
