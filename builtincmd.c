@@ -1,7 +1,9 @@
 #include "hsh.h"
+
 /**
- *
- *
+ * builtincmd - parse for builtin command and proceed accordingly
+ * @argv: provided command line
+ * Return: 1 if builtin matched, 0 otherwise
  */
 int builtincmd(char **argv)
 {
@@ -11,27 +13,27 @@ int builtincmd(char **argv)
 	for (x = 0; x < 3; x++)
 		if (strcmp(argv[0], Builtinarray[x]) == 0)
 		{
-		    switch (x)
-		    {
-		    case 0:
-			    exit(0);
-			    ret = 1;
-			    break;
-		    case 1:
-			    destdir = argv[1];
-			    rc = chdir(destdir);
-			    if (rc)
-				    perror("chdir failed");
-			    else
-				    setenv("PWD", destdir, 1);
-			    ret = 1;
-			    break;
-		    case 2:
-			    while (*environ)
-				    printf("%s\n", *environ++);
-			    ret = 1;
-			    break;
-		    }
+			switch (x)
+			{
+				case 0:
+					exit(0);
+				break;
+				case 1:
+					destdir = argv[1];
+					rc = chdir(destdir);
+					if (rc)
+						perror("chdir failed");
+					else
+						setenv("PWD", destdir, 1);
+					ret = 1;
+				break;
+				case 2:
+					while (*environ)
+						printf("%s\n", *environ++);
+					ret = 1;
+				break;
+			}
 		}
-		    return (ret);
+
+	return (ret);
 }
