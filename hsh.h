@@ -8,18 +8,6 @@
 #include <string.h>
 
 extern char **environ;
-/* extern const char *PWD; */
-/* extern char *PATH; */
-
-/*
- * const struct varinit varinit[] = {
- *       {&vifs,   VSTRFIXED|VTEXTFIXED,           "IFS= \t\n"},
- *       {&vpath,  VSTRFIXED|VTEXTFIXED,           "PATH=:/bin:/usr/bin"},
- *       {&vps1,   VSTRFIXED|VTEXTFIXED,           "PS1= ($) "},
- *       {&vvers,  VSTRFIXED|VTEXTFIXED,           "SHELLVERS=_sh 0.1alpha"},
- *       {NULL,    0,                              NULL}
- * };
- */
 
 char *read_line(void);
 char **split_line(char *line);
@@ -30,6 +18,8 @@ char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
 int builtincmd(char **argv);
+void sigintHandler(int sig);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
+
 #endif
