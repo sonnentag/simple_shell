@@ -16,7 +16,7 @@ char **split_line(char *line)
 		exit(1);
 	}
 
-	found = strtok(line, " \n\r\t\a");
+	found = strtok(line, " \n\r");
 	if (found == NULL)
 	{
 		free(buffer);
@@ -28,7 +28,7 @@ char **split_line(char *line)
 		c++;
 		if (c >= bufsize)
 		{
-			bufsize += 64;
+			bufsize += 1024;
 			buffer = realloc(buffer, bufsize * sizeof(char *));
 			if (!buffer)
 			{
@@ -36,7 +36,7 @@ char **split_line(char *line)
 				exit(1);
 			}
 		}
-		found = strtok(NULL, " \n\r\t\a");
+		found = strtok(NULL, " \n\r");
 	}
 	buffer[c] = NULL;
 	return (buffer);

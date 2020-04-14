@@ -9,7 +9,6 @@ int launch(char **argv)
 	pid_t pid;
 	int status;
 	char *cmd;
-	char wd[1024];
 	char **envp = environ;
 
 	pid = fork();
