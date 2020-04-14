@@ -21,6 +21,10 @@ int builtincmd(char **argv)
 				break;
 				case 1:
 					destdir = argv[1];
+					if (argv[1] == NULL || argv[1] == "..")
+					{
+						destdir = "/home/vagrant";
+					}
 					rc = chdir(destdir);
 					if (rc)
 						perror("chdir failed");
