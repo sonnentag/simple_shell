@@ -23,7 +23,7 @@ int _strcmp(char *s1, char *s2)
 	{
 		ret = s1[x] - s2[x];
 	}
-	return (r);
+	return (ret);
 }
 /**
  * _strlen - returns the length of a string

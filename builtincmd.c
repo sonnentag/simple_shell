@@ -12,7 +12,7 @@ int builtincmd(char **argv)
 	char **envp;
 
 	for (x = 0; x < 3; x++)
-		if (_strcmp(argv[0], Builtinarray[x]) == 0)
+		if (strcmp(argv[0], Builtinarray[x]) == 0)
 		{
 			switch (x)
 			{
@@ -21,6 +21,10 @@ int builtincmd(char **argv)
 				break;
 				case 1:
 					destdir = argv[1];
+					if (argv[1] == NULL || argv[1] == "..")
+					{
+						destdir = "/home/vagrant";
+					}
 					rc = chdir(destdir);
 					if (rc)
 						perror("chdir failed");
