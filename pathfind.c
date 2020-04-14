@@ -4,7 +4,7 @@
 char *pathfind(char *cmd)
 {
 	char *pathvar = _strdup(getenv("PATH"));
-	char pd[64], *pathd;
+	char pd[1024], *pathd;
 	char *ret = cmd;
 
 	pathd = strtok(pathvar, ":");
