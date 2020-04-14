@@ -17,6 +17,7 @@ int builtincmd(char **argv)
 			switch (x)
 			{
 				case 0:
+					free(argv);
 					exit(0);
 				break;
 				case 1:
@@ -36,6 +37,7 @@ int builtincmd(char **argv)
 					ret = 1;
 				break;
 			}
+			free(argv);
 		}
 
 	return (ret);
