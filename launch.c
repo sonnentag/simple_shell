@@ -22,12 +22,14 @@ int launch(char **argv)
 			cmd = argv[0];
 		if (execve(cmd, argv, envp) == -1)
 			printf("%s: Command not found.\n", cmd);
+		free(argv);
 		exit(EXIT_FAILURE);
 	}
 	else
 		do {
 			pid = waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	free(argv);
 
 	return (0);
 }

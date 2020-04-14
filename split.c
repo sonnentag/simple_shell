@@ -6,13 +6,14 @@
  */
 char **split_line(char *line)
 {
-	int bufsize = 0, c = 0;
+	int bufsize = 1024, c = 0;
 	char **buffer = malloc(bufsize * sizeof(char *));
 	char *found;
 
 	if (!buffer)
 	{
 		perror("Unable to allocate buffer");
+		free(buffer);
 		exit(1);
 	}
 
@@ -26,16 +27,6 @@ char **split_line(char *line)
 	{
 		buffer[c] = found;
 		c++;
-		if (c >= bufsize)
-		{
-			bufsize += 1024;
-			buffer = realloc(buffer, bufsize * sizeof(char *));
-			if (!buffer)
-			{
-				perror("Unable to reallocate buffer");
-				exit(1);
-			}
-		}
 		found = strtok(NULL, " \n\r");
 	}
 	buffer[c] = NULL;
