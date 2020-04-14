@@ -9,7 +9,7 @@ int builtincmd(char **argv)
 {
 	int x, rc, ret = 0;
 	char *Builtinarray[] = {"exit", "cd", "env"}, *destdir;
-	char **envp;
+	char **envp, *cwd;
 
 	for (x = 0; x < 3; x++)
 		if (strcmp(argv[0], Builtinarray[x]) == 0)
@@ -25,7 +25,8 @@ int builtincmd(char **argv)
 					if (rc)
 						perror("chdir failed");
 					else
-						setenv("PWD", destdir, 1);
+						getcwd(cwd, sizeof(cwd));
+						setenv("PWD", cwd, 1); 
 					ret = 1;
 				break;
 				case 2:

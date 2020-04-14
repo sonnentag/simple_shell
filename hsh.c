@@ -24,7 +24,7 @@ int main(void)
 			write(1, " ($) ", 5);
 			fflush(stdout);
 		}
-/* handle signal(SIGINT, ...handler); */
+		signal(SIGINT, INThandler);
 
 		line = read_line();
 		if (line)
@@ -34,4 +34,10 @@ int main(void)
 				launch(args);
 	}
 	return (0);
+}
+
+void INThandler(int sig)
+{
+	(void)sig;
+	write(STDOUT_FILENO, "\n ($) ", 6);
 }
