@@ -11,18 +11,13 @@ char *pathfind(char *cmd)
 	while (pathd)
 	{
 		_strcpy(pd, pathd);
-		strcat(pd, "/");
-		if (file_exist(strcat(pd, cmd)))
-		 	ret = _strdup(pd);
+		_strcat(pd, "/");
+		if ((stat(strcat(pd, cmd), &buffer) == 0))
+                        ret = _strdup(pd);
 
 		pathd = strtok(NULL, ":");
 	}
+	free(pathvar);
 	return (ret);
 }
 
-int file_exist(char *filename)
-{
-	struct stat buffer;
-
-	return (stat(filename, &buffer) == 0);
-}
