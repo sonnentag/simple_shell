@@ -12,7 +12,6 @@ extern char **environ;
 char *read_line(void);
 char **split_line(char *line);
 int launch(char **args);
-int file_exist(char *filename);
 char *pathfind(char *cmd);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
