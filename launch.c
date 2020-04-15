@@ -22,6 +22,7 @@ int launch(char **argv)
 			cmd = argv[0];
 		if (execve(cmd, argv, envp) == -1)
 			printf("%s: Command not found.\n", cmd);
+		free(*argv);
 		free(argv);
 		exit(EXIT_FAILURE);
 	}
@@ -29,6 +30,8 @@ int launch(char **argv)
 		do {
 			pid = waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+
+	free(*argv);
 	free(argv);
 
 	return (0);
