@@ -1,0 +1,64 @@
+." This is the man page for our simple_shell
+.TH man 1 "April 17, 2020" "Version 1.0" "man page: simple_shell"
+
+.SH NAME
+simple_shell - UNIX command language interpreter
+
+.SH SYNOPSIS
+./hsh
+
+.SH DESCRIPTION
+simple_shell is a command language interpreter that executes commands directly from the standard input or from a file.
+
+.SH COMMAND EXECUTION
+simple_shell first reads a line of input from an user. The line inputted is read and split into tokens. The simple_shell then reads each token. If a builtin is seen, then it is executed. If not, then it reads each token and goes through the PATH to check for any executables present. A new process is forked and executes the code. The output is printed, then it sends the wait signal, and finally the parent process terminates.
+
+.SH MODES
+.IP Interactive shell
+Starts without non-option arguments
+.IP Non-interactive shell
+Feed it an option argument, and the shell reads then executes the next command, for example 'echo "/bin/ls" | ./hsh'
+
+.SH BUILTIN COMMANDS
+The builtin commands:
+.PP
+.IP exit
+Terminates simple_shell's process and exits the shell
+.IP env
+Shows the user all enviorment variables
+.IP cd
+Changes the shell's working directory
+
+.SH FILES
+Files needed to run simple_shell:
+.PP
+.IP builtincmd.c
+Parse for builtin command and proceed accordingly
+.IP hsh.c
+Main function needed to get the simple_shell running
+.IP hsh.h
+Header file for simple_shell
+.IP launch.c
+Forks a new process and executes arguments
+.IP pathfind.c
+Passes command through PATH to find it and execute it
+.IP read.c
+Reads the line inputted into simple_shell
+.IP split.c
+Parse the line for simple_shell
+.IP _strcat.c
+Concatenates two strings
+.IP _strcmp.c
+Compares two strings
+.IP _strcpy.c
+Copies string from src to dest
+.IP _strdup.c
+Duplicates a string to a newly allocated space in memory
+
+.SH AUTHOR
+Shontrell Scott - 1700@holbertonschool.com
+.PP
+Anthony Sims - 1706@holbertonschool.com
+
+.SH SEE ALSO
+chdir (2), close (2), execve (2), exit (3), fflush (3), fork (2), free (3), getcwd (3), getline (3), malloc (3), open (2), read (2), stat (2), signal (2), strtok (3), wait (2), waitpid (2), write (2)
