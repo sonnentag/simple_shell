@@ -50,10 +50,16 @@ Parse the line for simple_shell
 Concatenates two strings
 .IP _strcmp.c
 Compares two strings
+.IP _strcpos.c
+return position of character from string
 .IP _strcpy.c
 Copies string from src to dest
 .IP _strdup.c
 Duplicates a string to a newly allocated space in memory
+.IP _strncatn.c
+Concatenate two strings starting at index n
+.IP _strncpy.c
+Copy n chars of string
 
 .SH AUTHOR
 Shontrell Scott - 1700@holbertonschool.com
