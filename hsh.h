@@ -21,4 +21,8 @@ void sigintHandler(int sig);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 
+int _strcpos(char *path);
+char *_strncpy(char *dest, char *src, int n);
+char *_strncatn(char *str, int n);
+
 #endif
