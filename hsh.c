@@ -3,11 +3,10 @@
 #include <string.h>
 #include <unistd.h>
 #include "hsh.h"
-
 /**
+ * main - Entry Point
  *
- *
- *
+ * Return: 0
  */
 int main(void)
 {
@@ -35,7 +34,10 @@ int main(void)
 	}
 	return (0);
 }
-
+/**
+ * sigintHandler - signal handler
+ * @sig: signal
+ */
 void sigintHandler(int sig)
 {
 	(void)sig;
