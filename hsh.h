@@ -12,7 +12,6 @@ extern char **environ;
 char *read_line(void);
 char **split_line(char *line);
 int launch(char **args);
-int file_exist(char *filename);
 char *pathfind(char *cmd);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
@@ -21,5 +20,9 @@ int builtincmd(char **argv);
 void sigintHandler(int sig);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
+
+int _strcpos(char *path);
+char *_strncpy(char *dest, char *src, int n);
+char *_strncatn(char *str, int n);
 
 #endif
