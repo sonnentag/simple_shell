@@ -13,7 +13,10 @@ int launch(char **argv)
 
 	pid = fork();
 	if (pid < 0)
+	{
 		perror("hsh");
+		exit(EXIT_FAILURE);
+	}
 	if (pid == 0)
 	{
 		if (strchr(argv[0], 47) == NULL)
@@ -22,7 +25,7 @@ int launch(char **argv)
 			if (cmd == NULL)
 			{
 				perror("hsh: 1: ");
-				return (147);
+				exit(EXIT_FAILURE);
 			}
 		}
 		else
