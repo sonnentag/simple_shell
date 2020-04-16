@@ -17,7 +17,7 @@ char *read_line(void)
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);
 		free(line);
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 
 	return (line);
