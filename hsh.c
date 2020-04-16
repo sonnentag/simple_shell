@@ -34,7 +34,7 @@ int main(void)
 			if (!builtincmd(args))
 				launch(args);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 /**
  * sigintHandler - signal handler

@@ -7,7 +7,7 @@
  */
 char *pathfind(char *cmd)
 {
-	char *ret, pd[1024], *str = pathvar, *pathvar = _strdup(getenv("PATH"));
+	char *pathvar = _strdup(getenv("PATH")), *ret, pd[1024], *str = pathvar;
 	struct stat sb;
 	int i = _strcpos(pathvar);
 
