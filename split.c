@@ -1,8 +1,8 @@
 #include "hsh.h"
 /**
- * **split_line - description
- *
- *
+ * **split_line - parses line read from the command line
+ * @line: line read from the command line
+ * Return: buffer of parsed commands
  */
 char **split_line(char *line)
 {
