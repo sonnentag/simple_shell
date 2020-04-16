@@ -25,5 +25,6 @@ char *_strncatn(char *str, int n);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
-
+int _putchar(char c);
+void _puts(char *str);
 #endif /* _HSH_H */

@@ -34,7 +34,7 @@ int builtincmd(char **argv)
 				case 2:
 					envp = environ;
 					while (*envp)
-						printf("%s\n", *envp++);
+						_puts(*envp++);
 					ret = 1;
 				break;
 			}
