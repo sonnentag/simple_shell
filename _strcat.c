@@ -1,25 +1,20 @@
 #include "hsh.h"
+
 /**
- * _strcat - concatenates two strings
- *
- * @dest: string one
- * @src: string two to connect to string one
- *
- * Return: concatenated string
+ * _strcat - concatenate 2 strings
+ * @src: provided source string
+ * @dest: provided destination
+ * Return: modified destination string
  */
 char *_strcat(char *dest, char *src)
 {
-	int x = 0;
-	int y = 0;
+	void *ret = dest;
 
-	while (dest[x] != '\0')
-	{
-		x++;
-	}
-	while (src[y] != '\0')
-	{
-		dest[x++] = src[y++];
-	}
-	*dest = '\0';
-	return (dest);
+	while (*dest)
+		dest++;
+	while
+		((*dest++ = *src++));
+	*dest = (char)0;
+
+	return (ret);
 }

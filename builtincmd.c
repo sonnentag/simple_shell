@@ -12,11 +12,12 @@ int builtincmd(char **argv)
 	char **envp, cwd[1024];
 
 	for (x = 0; x < 3; x++)
-		if (strcmp(argv[0], Builtinarray[x]) == 0)
+		if (_strcmp(argv[0], Builtinarray[x]) == 0)
 		{
 			switch (x)
 			{
 				case 0:
+					free(*argv);
 					free(argv);
 					exit(0);
 				break;
