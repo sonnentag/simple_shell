@@ -7,7 +7,7 @@
  */
 char *pathfind(char *cmd)
 {
-	char *pathvar = _strdup(getenv("PATH")), *ret, pd[1024], *str = pathvar;
+	char *pathvar = _strdup(getvar("PATH")), *ret, pd[1024], *str = pathvar;
 	struct stat sb;
 	int i = _strcpos(pathvar);
 
@@ -25,7 +25,7 @@ char *pathfind(char *cmd)
 				ret = _strdup(cmd);
 				break;
 			}
-		memset(pd, 0, sizeof(char) * 1024);
+		_memset(pd, 0, sizeof(char) * 1024);
 		_strncpy(pd, str, i);
 		_strcat(pd, "/");
 		if ((stat(_strcat(pd, cmd), &sb) == 0) && sb.st_mode & S_IXUSR)

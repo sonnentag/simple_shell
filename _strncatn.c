@@ -12,7 +12,6 @@ char *_strncatn(char *str, int n)
 		str++;
 		n--;
 	}
-	printf("%s\n", str);
 
 	return (str);
 }
