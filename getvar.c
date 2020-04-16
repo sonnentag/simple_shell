@@ -7,7 +7,7 @@ char *getvar(char *vname)
         int c = 0;
 
         envp = environ;
-        while (*envp)
+        while (*envp++)
         {
                 vval = strdup(envp[c]);
                 vcmp = strtok(vval, "=");
@@ -17,7 +17,6 @@ char *getvar(char *vname)
 			if (strcmp(vval, vname) == 0)
 				return (vcmp);
 		}
-                *envp++;
         }
 
         return (NULL);
