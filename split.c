@@ -14,7 +14,7 @@ char **split_line(char *line)
 	{
 		perror("Unable to allocate buffer");
 		free(buffer);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
 	found = strtok(line, " \n\r");

@@ -19,7 +19,7 @@ int builtincmd(char **argv)
 				case 0:
 					free(*argv);
 					free(argv);
-					exit(0);
+					exit(EXIT_FAILURE);
 				break;
 				case 1:
 					destdir = argv[1];
