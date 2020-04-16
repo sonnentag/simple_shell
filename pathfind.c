@@ -1,6 +1,10 @@
 #include <sys/stat.h>
 #include "hsh.h"
-
+/**
+ * *pathfind - finds the PATH of a command passed
+ * @cmd: command
+ * Return: ret
+ */
 char *pathfind(char *cmd)
 {
 	char *ret, pd[1024], *str = pathvar, *pathvar = _strdup(getenv("PATH"));
@@ -9,6 +13,12 @@ char *pathfind(char *cmd)
 
 	if (i < 0)
 	{
+<<<<<<< HEAD
+		_strcpy(pd, pathd);
+		strcat(pd, "/");
+		if (file_exist(strcat(pd, cmd)))
+			ret = _strdup(pd);
+=======
 		_strcat(pathvar, "/");
 		if ((stat(_strcat(pathvar, cmd), &sb) == 0) && sb.st_mode & S_IXUSR)
 			ret = _strdup(pd);
@@ -31,6 +41,7 @@ char *pathfind(char *cmd)
 		}
 		for (; i >= 0; i--)
 			str++;
+>>>>>>> 51407317fdc94916907a080eacaac5c400946f4a
 
 		i = _strcpos(str);
 	}
@@ -38,4 +49,18 @@ char *pathfind(char *cmd)
 
 	return (ret);
 }
+<<<<<<< HEAD
+/**
+ * file_exist - checks if a file exist
+ * @filename: name of file
+ * Return: file status
+ */
+int file_exist(char *filename)
+{
+	struct stat buffer;
 
+	return (stat(filename, &buffer) == 0);
+}
+=======
+
+>>>>>>> 51407317fdc94916907a080eacaac5c400946f4a

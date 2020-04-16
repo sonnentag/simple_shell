@@ -1,8 +1,7 @@
 #include "hsh.h"
-
 /**
- *
- *
+ * read_line - reads input on the command line
+ * Return: line read
  */
 char *read_line(void)
 {
