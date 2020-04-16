@@ -1,10 +1,8 @@
-#include <stdlib.h> 
+#include <stdlib.h>
 #include "hsh.h"
-
 /**
  * _strcpos - return position of character from string
- * @s: string
- * @c: character
+ * @path: PATH
  * Return: c's position in string or -1
  */
 int _strcpos(char *path)

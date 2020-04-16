@@ -1,9 +1,7 @@
 #include "hsh.h"
-
 /**
  * _strncatn - concatenate two strings starting at index n
- * @dest: provided destination string
- * @src: provided source string
+ * @str: provided source string
  * @n: number of characters to cat
  * Return: modified destination string
  */
