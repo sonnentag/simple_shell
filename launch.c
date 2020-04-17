@@ -19,7 +19,7 @@ int launch(char **argv, int cnt)
 	}
 	if (pid == 0)
 	{
-		if (strchr(argv[0], 47) == NULL)
+		if (_strchr(argv[0], 47) == NULL)
 		{
 			cmd = pathfind(argv[0]);
 			if (cmd == NULL)

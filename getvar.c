@@ -9,12 +9,12 @@ char *getvar(char *vname)
         envp = environ;
         while (*envp++)
         {
-                vval = strdup(envp[c]);
+                vval = _strdup(envp[c]);
                 vcmp = strtok(vval, "=");
 		while (vcmp)
 		{
 			vcmp = strtok(NULL, "=");
-			if (strcmp(vval, vname) == 0)
+			if (_strcmp(vval, vname) == 0)
 				return (vcmp);
 		}
         }

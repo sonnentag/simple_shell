@@ -21,7 +21,7 @@ char **split_line(char *line)
 	if (found == NULL)
 	{
 		free(buffer);
-		exit(EXIT_SUCCESS);
+		return (0);
 	}
 	while (found != NULL)
 	{
