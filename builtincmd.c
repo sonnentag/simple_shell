@@ -3,6 +3,7 @@
 /**
  * builtincmd - parse for builtin command and proceed accordingly
  * @argv: provided command line
+ * @cnt: command count
  * Return: 1 if builtin matched, 0 otherwise
  */
 int builtincmd(char **argv, int cnt)

@@ -1,5 +1,10 @@
 #include "hsh.h"
 
+/**
+ * _perrmsg - write sh style error to stderr
+ * @av: argv with command line
+ * @count: command count
+ */
 void _perrmsg(char **av, int count)
 {
 	char c;
@@ -23,6 +28,11 @@ void _perrmsg(char **av, int count)
 	write(STDERR_FILENO, ": not found\n", 12);
 }
 
+/**
+ * _puterrc - put character to err
+ * @c: character to put
+ * Return: char to stderr
+ */
 int _puterrc(char c)
 {
 	return (write(STDERR_FILENO, &c, 1));
