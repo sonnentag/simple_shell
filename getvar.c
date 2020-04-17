@@ -1,7 +1,8 @@
 #include "hsh.h"
+
 /**
- * *getvar - get environment variable
- * @vname: variable name
+ * getvar - get variable from environment
+ * @vname: var name to get
  * Return: NULL
  */
 char *getvar(char *vname)
