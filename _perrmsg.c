@@ -1,5 +1,9 @@
 #include "hsh.h"
-
+/**
+ * _perrmsg - description
+ * @av: char
+ * @count: int
+ */
 void _perrmsg(char **av, int count)
 {
 	char c;

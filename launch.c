@@ -2,6 +2,7 @@
 /**
  * launch - Forks parent process
  * @argv: pointer to a string of commands passed as arguments
+ * @cnt: int
  * Return: 0
  */
 int launch(char **argv, int cnt)
