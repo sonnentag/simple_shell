@@ -3,7 +3,7 @@
 /**
  * getvar - get variable from environment
  * @vname: var name to get
- * Return: null
+ * Return: NULL
  */
 char *getvar(char *vname)
 {
