@@ -4,7 +4,7 @@
  * @argv: pointer to a string of commands passed as arguments
  * Return: 0
  */
-int launch(char **argv)
+int launch(char **argv, int cnt)
 {
 	pid_t pid;
 	int status;
@@ -14,7 +14,7 @@ int launch(char **argv)
 	pid = fork();
 	if (pid < 0)
 	{
-		perror("hsh");
+		perror("Error:");
 		exit(EXIT_FAILURE);
 	}
 	if (pid == 0)
@@ -24,14 +24,14 @@ int launch(char **argv)
 			cmd = pathfind(argv[0]);
 			if (cmd == NULL)
 			{
-				perror("hsh: 1: ");
+				_perrmsg(argv, cnt);
 				exit(EXIT_FAILURE);
 			}
 		}
 		else
 			cmd = argv[0];
 		if (execve(cmd, argv, envp) == -1)
-			printf("%s: Command not found.\n", cmd);
+			_perrmsg(argv, cnt);
 		free(*argv);
 		free(argv);
 		exit(EXIT_FAILURE);
