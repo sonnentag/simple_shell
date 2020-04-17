@@ -12,16 +12,20 @@ int main(void)
 {
 	char *line;
 	char **args;
-	int r = 1;
+	int r = 1, cmdcnt = 0;
 
 	while (r == 1)
 	{
 		if (!isatty(STDIN_FILENO))
+		{
 			r = 0;
+			cmdcnt++;
+		}
 		else
 		{
 			write(1, " ($) ", 5);
-			fflush(stdout);
+			cmdcnt++;
+			fflush(stdin);
 		}
 		signal(SIGINT, sigintHandler);
 
@@ -31,8 +35,8 @@ int main(void)
 		if (!args)
 			free(args);
 		else
-			if (!builtincmd(args))
-				launch(args);
+			if (!builtincmd(args, cmdcnt))
+				launch(args, cmdcnt);
 	}
 	return (EXIT_SUCCESS);
 }

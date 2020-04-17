@@ -5,7 +5,7 @@
  * @argv: provided command line
  * Return: 1 if builtin matched, 0 otherwise
  */
-int builtincmd(char **argv)
+int builtincmd(char **argv, int cnt)
 {
 	int x, rc, ret = 0;
 	char *Builtinarray[] = {"exit", "cd", "env"}, *destdir;
@@ -25,7 +25,7 @@ int builtincmd(char **argv)
 					destdir = argv[1];
 					rc = chdir(destdir);
 					if (rc)
-						perror("chdir failed");
+						_perrmsg(argv, cnt);
 					else
 						getcwd(cwd, sizeof(cwd));
 
