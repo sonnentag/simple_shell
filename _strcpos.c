@@ -5,10 +5,9 @@
  * @path: PATH
  * Return: c's position in string or -1
  */
-int _strcpos(char *path)
+int _strcpos(char *path, char c)
 {
 	int i = 0;
-	char c = 58;
 
 	while (*path)
 	{
