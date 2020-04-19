@@ -9,7 +9,7 @@ char *pathfind(char *cmd)
 {
 	char *pathvar = _strdup(getvar("PATH")), *ret, pd[1024], *str = pathvar;
 	struct stat sb;
-	int i = _strcpos(pathvar);
+	int i = _strcpos(pathvar, 58);
 
 	if (i < 0)
 	{
@@ -36,7 +36,7 @@ char *pathfind(char *cmd)
 		for (; i >= 0; i--)
 			str++;
 
-		i = _strcpos(str);
+		i = _strcpos(str, 58);
 	}
 	free(pathvar);
 

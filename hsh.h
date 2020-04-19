@@ -20,7 +20,7 @@ char **split_line(char *line);
 
 char *_memset(char *s, char b, unsigned int n);
 int _strcmp(char *s1, char *s2);
-int _strcpos(char *path);
+int _strcpos(char *path, char c);
 int _strlen(char *s);
 char *_strncpy(char *dest, char *src, int n);
 char *_strncatn(char *str, int n);
