@@ -18,7 +18,6 @@ int builtincmd(char **argv, int cnt)
 			switch (x)
 			{
 				case 0:
-					free(*argv);
 					free(argv);
 					exit(EXIT_SUCCESS);
 				break;
