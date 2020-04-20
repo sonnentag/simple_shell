@@ -38,6 +38,7 @@ int main(void)
 			if (!builtincmd(args, cmdcnt))
 				launch(args, cmdcnt);
 	}
+	free(line);
 	return (EXIT_SUCCESS);
 }
 /**

@@ -43,7 +43,6 @@ int launch(char **argv, int cnt)
 			pid = waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 
-	free(*argv);
 	free(argv);
 
 	return (0);
